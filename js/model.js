@@ -18,13 +18,17 @@ class Model extends Observable {
     }
     
     addTextField() {
+    	// création d'une nouvelle div pour contenir le champ texte
+        const newDiv = document.createElement('div');
+        // Espace entre les champs
+        newDiv.style.marginBottom = '10px';
+        
     	const newTextField = document.createElement('input');
-    
     	newTextField.type = '';
-
-    	document.getElementById('textFieldContainer').appendChild(newTextField);
     	
-    	this.setChanged();
-        this.notifyObservers();
+        newDiv.appendChild(newTextField);
+        
+        document.getElementById('textFieldContainer').appendChild(newDiv);
+  
     }
 }

@@ -19,7 +19,7 @@ class View {
 			<b>DÉTAILS</b>
 		</div>
 		<div id="textFieldContainer"> </div>
-		<button class="buttonPlus">+</button>
+		<button class="buttonPlus" id="buttonPlus">+</button>
 		<br>
 		<button id="buttonAddSeance" class="btn btn-light border">Ajouter la séance</button>
 	</div>

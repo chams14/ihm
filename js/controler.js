@@ -78,9 +78,5 @@ class Controler {
       //nécessaire à cet endrit pour que Call of Ball et Basketball soient affichés à l'initialisation de la page
       //après que les observers aient été instanciés
       actionAdd();
-
-      // permet de lancer une fois les observer pour initialiser la vue
-      //this.model.setValue(0);
-
   }
 }

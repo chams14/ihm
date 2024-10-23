@@ -1,5 +1,3 @@
-
-
 // implementation class
 
 class Model extends Observable {
@@ -18,21 +16,4 @@ class Model extends Observable {
 	this.setChanged();
         this.notifyObservers();
     }
-
-    /*setValue(x){
-
-        if(x <= Model.MAX && x >= Model.MIN){
-            this.x = x;
-            this.setChanged();
-            this.notifyObservers();
-        }
-    }
-
-    plus(){
-        this.setValue(this.x + 1);
-    }
-
-    minus(){
-        this.setValue(this.x - 1);
-    }*/
 }

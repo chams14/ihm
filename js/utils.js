@@ -1,15 +1,9 @@
-// utils classes
-class Mediator{
-  constructor(){
-  }
-
-  mediate(observable, object){
-  }
-}
 
 class Observable {
+
   constructor(){
     this.observers = [];
+    console.log('observable');
     this.state = false;
   }
 
@@ -18,12 +12,14 @@ class Observable {
   }
 
   notifyObservers(object = null){
+
     if(this.state == true){
-      this.state = false;
       for(let i = 0; i < this.observers.length; i++) {
         this.observers[i].update(this, object);
       }
     }
+
+    this.state = false;
   }
 
   clearObservers(){
@@ -45,8 +41,10 @@ class Observable {
 
 class Observer {
   constructor(){
+
   }
 
   update(observable, object){
+
   }
 }

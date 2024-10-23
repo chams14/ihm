@@ -1,13 +1,18 @@
 // utils classes
+
 class Mediator{
+
   constructor(){
+
   }
 
   mediate(observable, object){
+
   }
 }
 
 class Observable {
+
   constructor(){
     this.observers = [];
     this.state = false;
@@ -18,6 +23,7 @@ class Observable {
   }
 
   notifyObservers(object = null){
+
     if(this.state == true){
       this.state = false;
       for(let i = 0; i < this.observers.length; i++) {
@@ -45,8 +51,10 @@ class Observable {
 
 class Observer {
   constructor(){
+
   }
 
   update(observable, object){
+
   }
 }

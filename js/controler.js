@@ -1,16 +1,32 @@
-class UpdateTxt extends Observer {
+class UpdateTitle extends Observer {
+  
     constructor(view){
       super();
       this.view = view;
     }
+  
     update(observable, object){
-      this.view.input.value = observable.x;
-      this.view.list.value = observable.x;
-      console.log("Valeur du modèle :", observable.x);
+      //this.view.input.value = observable.x;
+	  //this.view.title.value = observable.title;
+    	this.view.title.innerHTML = observable.title;
     } 
 }
 
-class UpdateDisable extends Observer {
+class UpdateSport extends Observer {
+  
+    constructor(view){
+      super();
+      this.view = view;
+    }
+  
+    update(observable, object){
+    	//this.view.sport.value = observable.sport;
+    	this.view.sport.innerHTML = observable.sport;
+    } 
+}
+
+/*class UpdateDisable extends Observer {
+  
     constructor(view){
       super();
       this.view = view;
@@ -20,39 +36,49 @@ class UpdateDisable extends Observer {
       this.view.buttonPlus.disabled = observable.x == Model.MAX;
       this.view.buttonMinus.disabled = observable.x == Model.MIN;
     } 
-}
+}*/
 
 class Controler {
+
   constructor(model){
-    this.view = new View();
-    this.model = model;
 
-    // update
-    let updateTxt  = new UpdateTxt(this.view);
-    this.model.addObservers(updateTxt);
+      this.view = new View();
+      this.model = model;
 
-    let updadeDisable = new UpdateDisable(this.view);
-    this.model.addObservers(updadeDisable);
+      // update
 
-    //  action
-    let actionPlus = (event) => {
-      this.model.plus();
-    }
-    let actionMinus = (event) => {
-      this.model.minus();
-    }
+      /*let updateTxt  = new UpdateTxt(this.view);
+      this.model.addObservers(updateTxt);*/
+	  
+      let updateTitle = new UpdateTitle(this.view);
+      this.model.addObservers(updateTitle);
 
-    let actionInput = (event) => {
-      const newX = parseInt(event.target.value);
-      this.model.setValue(newX);
-    }
+      /*let updadeDisable = new UpdateDisable(this.view);
+      this.model.addObservers(updadeDisable);*/
+	  
+      let updateSport = new UpdateSport(this.view);
+      this.model.addObservers(updateSport);
 
-    this.view.buttonPlus.addEventListener('click', actionPlus);
-    this.view.buttonMinus.addEventListener('click', actionMinus);
-    this.view.input.addEventListener('change', actionInput);
-    this.view.list.addEventListener('change', actionInput);
+      //  action
+      /*let actionPlus = (event) => {
+        this.model.plus();
+      }
 
-    // permet de lancer une fois les observer pour initialiser la vue
-    this.model.setValue(0);
+      let actionMinus = (event) => {
+        this.model.minus();
+      }
+
+      this.view.buttonPlus.addEventListener('click', actionPlus);
+      this.view.buttonMinus.addEventListener('click', actionMinus);*/
+	  
+      let actionAdd = (event) => {
+      	this.model.setValue();
+      }
+	  
+      this.view.buttonAddSeance.addEventListener('click', actionAdd);
+
+      // permet de lancer une fois les observer pour initialiser la vue
+      //this.model.setValue(0);
+
   }
 }

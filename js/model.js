@@ -1,19 +1,32 @@
+
+
 // implementation class
+
 class Model extends Observable {
-    static MAX = 10;
-    static MIN = 0;
+
+    static title = "Call of Ball";
+    static sport = "";
 
     constructor(){
         super();
-        this.x = 0;
+        //this.x = 0;
     }
+	
+	setValue() {
+		this.title = "Call of Ball";
+		this.sport = "Basketball";
+		
+		this.setChanged();
+        this.notifyObservers();
+	}
 
-    setValue(x){
+    /*setValue(x){
+
         if(x <= Model.MAX && x >= Model.MIN){
             this.x = x;
+            this.setChanged();
+            this.notifyObservers();
         }
-        this.setChanged();
-        this.notifyObservers();
     }
 
     plus(){
@@ -22,5 +35,5 @@ class Model extends Observable {
 
     minus(){
         this.setValue(this.x - 1);
-    }
+    }*/
 }

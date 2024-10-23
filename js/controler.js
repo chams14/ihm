@@ -88,5 +88,7 @@ class Controler {
       let actionAddTextField = (event) => {
       	this.model.addTextField();
       }
+      
+      this.view.buttonPlus.addEventListener('click', actionAddTextField);
   }
 }

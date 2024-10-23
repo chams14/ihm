@@ -8,23 +8,25 @@ class View {
     this.div.innerHTML = `
         <div class="center">
 		<div id="seance">
-			<b>Créer une séance</b>
+			<b>CRÉER UNE SÉANCE</b>
 		</div>
-		<div id="title"> </div>
+		<div id="titre"> </div>
 		<div id="sport"> </div>
 		<input type="date" id="date">
 		<input type="time" id="time">
 		<br>
-		<div id="details"
-			<b>Détails</b>
+		<div id="details">
+			<b>DÉTAILS</b>
 		</div>
-		<button id="buttonPlus">+</button>
+		<div id="textFieldContainer"> </div>
+		<button class="buttonPlus">+</button>
+		<br>
 		<button id="buttonAddSeance" class="btn btn-light border">Ajouter la séance</button>
 	</div>
       </div>
     `;
 	
-    this.title = this.div.querySelector('#title');
+    this.title = this.div.querySelector('#titre');
     this.sport = this.div.querySelector('#sport');
     
     this.date = this.div.querySelector('#date');

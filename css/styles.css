@@ -42,8 +42,16 @@ body {
   color : #05386B;
 }
 
+#titre {
+  font-size: large;
+}
+
 .button{
   margin: 0px 20px 0px 0px;
+}
+
+.buttonPlus {
+  color: green;
 }
 
 .textField{

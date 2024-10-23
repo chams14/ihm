@@ -9,6 +9,10 @@ body {
   width: 100%;
 }
 
+.center {
+    text-align: center;
+}
+
 .outer{
   display: flex;
   flex-flow: column;

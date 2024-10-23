@@ -4,7 +4,7 @@
 
 class Model extends Observable {
 
-    static title = "Call of Ball";
+    static title = "";
     static sport = "";
 
     constructor(){
@@ -17,7 +17,7 @@ class Model extends Observable {
 		this.sport = "Basketball";
 		
 		this.setChanged();
-        this.notifyObservers();
+        	this.notifyObservers();
 	}
 
     /*setValue(x){

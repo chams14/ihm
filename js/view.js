@@ -6,33 +6,16 @@ class View {
     this.div = document.createElement('div');
 
     this.div.innerHTML = `
-      <div class='row mt-4'>
-        <div class="col-3"></div>
-			<div class="seance">
-				Créer une séance
-			</div>
-			<div class="col-2"> 
-				<div id="title"> </div>
-			</div>
-			<div class="col-2"> 
-				<div id="title">
-					<!-- <script>
-						this.model.title;
-					</script> -->
-				</div>
-				<div id="sport">
-					<!-- <script>
-						this.model.sport;
-					</script> -->
-				</div>
-			</div>
-			<div class="col-2">
-				<input type="date">
-			</div>
-			<div class="col-2">
-				<button id="buttonAddSeance" class="btn btn-light border">Ajouter une séance</button>
-			</div>
-        <div class="col-3"></div>
+        <div class="center">
+		<div id="seance">
+			<b>Créer une séance</b>
+		</div>
+		<div id="title"> </div>
+		<div id="sport"> </div>
+		<input type="date">
+		<br>
+		<button id="buttonAddSeance" class="btn btn-light border">Ajouter une séance</button>
+	</div>
       </div>
     `;
 	

@@ -68,15 +68,25 @@ class Controler {
       this.model.addObservers(updateTime);
       
       //action
+      
+      let actionTitleAndSport = (event) => {
+      	//TODO
+      	this.model.setTitleAndSport();
+      }
+      
+      //nécessaire à cet endroit pour que Call of Ball et Basketball soient affichés à l'initialisation de la page
+      //après que les observers aient été instanciés
+      actionTitleAndSport();
 	  
-      let actionAdd = (event) => {
-      	this.model.setValue();
+      let actionRedirect = (event) => {
+      	//TODO
+      	this.model.redirect();
       }
 	  
-      this.view.buttonAddSeance.addEventListener('click', actionAdd);
+      this.view.buttonAddSeance.addEventListener('click', actionRedirect);
       
-      //nécessaire à cet endrit pour que Call of Ball et Basketball soient affichés à l'initialisation de la page
-      //après que les observers aient été instanciés
-      actionAdd();
+      let actionAddTextField = (event) => {
+      	this.model.addTextField();
+      }
   }
 }

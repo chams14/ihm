@@ -15,6 +15,10 @@ class View {
 		<input type="date" id="date">
 		<input type="time" id="time">
 		<br>
+		<div id="details"
+			<b>Détails</b>
+		</div>
+		<button id="buttonPlus">+</button>
 		<button id="buttonAddSeance" class="btn btn-light border">Ajouter la séance</button>
 	</div>
       </div>
@@ -26,6 +30,7 @@ class View {
     this.date = this.div.querySelector('#date');
     this.time = this.div.querySelector('#time');
     
+    this.buttonPlus = this.div.querySelector('#buttonPlus');
     this.buttonAddSeance = this.div.querySelector('#buttonAddSeance');
 
     let nodeParent = document.querySelector('#outer');

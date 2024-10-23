@@ -12,7 +12,7 @@ class Model extends Observable {
     	this.sport = "Basketball";
     }
 	
-    setValue() {
+    setTitleAndSport() {
 	this.setChanged();
         this.notifyObservers();
     }

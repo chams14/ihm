@@ -1,16 +1,6 @@
 class View {
   constructor() {
-    this.div = document.createElement('div');
-    this.inputButton = document.createElement('input'); // Create the button
-    this.inputButton.value = '0';
-    this.div.appendChild(this.inputButton);
 
-    this.incrementButton = document.createElement('button');
-    this.decrementButton = document.createElement('button');
-    this.incrementButton.textContent = '+';
-    this.decrementButton.textContent = '-';
-    this.div.appendChild(this.incrementButton);
-    this.div.appendChild(this.decrementButton);
 
     this.top = document.createElement('div');
     this.top.classList.add('top-container'); // Add class for styling
@@ -26,21 +16,32 @@ class View {
     this.top.appendChild(this.title);
 
     this.underTop = document.createElement('div');
-    this.underTop.classList.add('top-container'); // Add class for styling
+    this.underTop.classList.add('under-top-container'); // Add class for styling
 
     this.place = document.createElement('h2');
     this.place.textContent = 'Place';
     this.place.classList.add('centered-title'); // Add class for styling
     this.underTop.appendChild(this.place);
 
-    this.date = document.createElement('p');
-    this.date.textContent = 'Date';
-    this
+    this.dateHeureContainer = document.createElement('div');
+    this.dateHeureContainer.classList.add('date-container'); // Add class for styling
+
+    this.date = document.createElement('h2');
+    this.date.textContent = '20 Nov. 2024';
+    this.date.classList.add('date'); // Add class for styling
+    this.dateHeureContainer.appendChild(this.date);
+
+    this.heure = document.createElement('h2');
+    this.heure.textContent = '14h';
+    this.heure.classList.add('heure'); // Add class for styling
+    this.dateHeureContainer.appendChild(this.heure);
+
+    this.underTop.appendChild(this.dateHeureContainer);
 
     this.details = document.createElement('div');
     this.details.classList.add('details'); // Add class for styling
 
-    this.detailsTitle = document.createElement('p');
+    this.detailsTitle = document.createElement('h2');
     this.detailsTitle.textContent = 'Détails';
     this.detailsTitle.classList.add('centered-title'); // Add class for styling
     this.details.appendChild(this.detailsTitle);
@@ -52,7 +53,7 @@ class View {
     this.participants = document.createElement('div');
     this.participants.classList.add('participants'); // Add class for styling
 
-    this.participantsTitle = document.createElement('p');
+    this.participantsTitle = document.createElement('h2');
     this.participantsTitle.textContent = 'Participants';
     this.participantsTitle.classList.add('centered-title'); // Add class for styling
     this.participants.appendChild(this.participantsTitle);
@@ -60,7 +61,12 @@ class View {
     let participantsList = document.createElement('ul');
     participantsList.classList.add('participants-list'); // Add class for styling
 
-    const participants = ['John Doe', 'Jane Doe', 'Johnny Doe'];
+    const participants = [
+      { name: 'John Doe', username: '@johndoe' },
+      { name: 'Jane Doe', username: '@janedoe' },
+      { name: 'Johnny Doe', username: '@johnnydoe' }
+    ];
+
     participants.forEach((participant, index) => {
       let listItem = document.createElement('li');
       listItem.classList.add('participant-item'); // Add class for styling
@@ -69,12 +75,28 @@ class View {
       img.src = `./userImage/participant${index + 1}.png`; // Assuming images are named participant1.jpg, participant2.jpg, etc.
       img.classList.add('participant-image'); // Add class for styling
 
+      let nameContainer = document.createElement('div');
+      nameContainer.classList.add('name-container'); // Add class for styling
+
       let name = document.createElement('span');
-      name.textContent = participant;
+      name.textContent = participant.name;
       name.classList.add('participant-name'); // Add class for styling
 
+      let username = document.createElement('span');
+      username.textContent = participant.username;
+      username.classList.add('participant-username'); // Add class for styling
+
+      nameContainer.appendChild(name);
+      nameContainer.appendChild(username);
+
+      // Create the three dots element
+      let dots = document.createElement('span');
+      dots.textContent = '...';
+      dots.classList.add('dots'); // Add class for styling
+
       listItem.appendChild(img);
-      listItem.appendChild(name);
+      listItem.appendChild(nameContainer); // Append the name container
+      listItem.appendChild(dots); // Append the dots to the participant item
       participantsList.appendChild(listItem);
     });
 
@@ -96,8 +118,5 @@ class View {
 
     let nodeTop = document.querySelector('#top');
     nodeTop.appendChild(this.top);
-
-    let nodeParent = document.querySelector('#outer');
-    nodeParent.appendChild(this.div);
   }
 }

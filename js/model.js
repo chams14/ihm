@@ -1,26 +1,48 @@
 // implementation class
 class Model extends Observable {
-    static MAX = 10;
-    static MIN = 0;
-
     constructor(){
         super();
-        this.x = 0;
+        this.currentDate = new Date();
+        this.date = this.format(this.currentDate);
+        this.amis = '<img src="/image/ajouter.png" alt="ajouter">AJOUTER EN AMI(E)';
     }
 
-    setValue(x){
-        if(x <= Model.MAX && x >= Model.MIN){
-            this.x = x;
+    setAmis(action){
+        if(action === "ajouter"){
+            this.amis = '<img src="/image/ajouter.png" alt="ajouter">AJOUTER EN AMI(E)';
+        } else {
+            this.amis = '<img src="/image/retirer.png" alt="retirer">RETIRER DES AMI(E)';
         }
         this.setChanged();
         this.notifyObservers();
     }
 
-    plus(){
-        this.setValue(this.x + 1);
+    setDate(year, month){
+        this.currentDate.setFullYear(year);
+        this.currentDate.setMonth(month);
+        this.date = this.format(this.currentDate);
+        this.setChanged();
+        this.notifyObservers();
     }
 
-    minus(){
-        this.setValue(this.x - 1);
+    getDate(){
+        return this.currentDate;
+    }
+
+    format(date){
+        const monthNames = [
+            "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", 
+            "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+        ];
+        return `${monthNames[date.getMonth()]} ${date.getFullYear()}`; 
+    }
+
+    next(){
+        this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+        this.setDate(this.currentDate.getFullYear(), this.currentDate.getMonth());
+    }
+    prev(){
+        this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+        this.setDate(this.currentDate.getFullYear(), this.currentDate.getMonth());
     }
 }

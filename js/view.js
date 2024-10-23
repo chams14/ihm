@@ -12,15 +12,20 @@ class View {
 		</div>
 		<div id="title"> </div>
 		<div id="sport"> </div>
-		<input type="date">
+		<input type="date" id="date">
+		<input type="time" id="time">
 		<br>
-		<button id="buttonAddSeance" class="btn btn-light border">Ajouter une séance</button>
+		<button id="buttonAddSeance" class="btn btn-light border">Ajouter la séance</button>
 	</div>
       </div>
     `;
 	
     this.title = this.div.querySelector('#title');
     this.sport = this.div.querySelector('#sport');
+    
+    this.date = this.div.querySelector('#date');
+    this.time = this.div.querySelector('#time');
+    
     this.buttonAddSeance = this.div.querySelector('#buttonAddSeance');
 	
     /*this.buttonPlus = this.div.querySelector('#buttonPlus');

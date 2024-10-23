@@ -6,8 +6,6 @@ class UpdateTitle extends Observer {
     }
   
     update(observable, object){
-      //this.view.input.value = observable.x;
-	  //this.view.title.value = observable.title;
     	this.view.title.innerHTML = observable.title;
     } 
 }
@@ -20,12 +18,11 @@ class UpdateSport extends Observer {
     }
   
     update(observable, object){
-    	//this.view.sport.value = observable.sport;
     	this.view.sport.innerHTML = observable.sport;
     } 
 }
 
-/*class UpdateDisable extends Observer {
+class UpdateDate extends Observer {
   
     constructor(view){
       super();
@@ -33,10 +30,21 @@ class UpdateSport extends Observer {
     }
   
     update(observable, object){
-      this.view.buttonPlus.disabled = observable.x == Model.MAX;
-      this.view.buttonMinus.disabled = observable.x == Model.MIN;
+    	this.view.date.innerHTML = observable.date;
     } 
-}*/
+}
+
+class UpdateTime extends Observer {
+  
+    constructor(view){
+      super();
+      this.view = view;
+    }
+  
+    update(observable, object){
+    	this.view.time.innerHTML = observable.time;
+    } 
+}
 
 class Controler {
 
@@ -46,36 +54,30 @@ class Controler {
       this.model = model;
 
       // update
-
-      /*let updateTxt  = new UpdateTxt(this.view);
-      this.model.addObservers(updateTxt);*/
 	  
       let updateTitle = new UpdateTitle(this.view);
       this.model.addObservers(updateTitle);
-
-      /*let updadeDisable = new UpdateDisable(this.view);
-      this.model.addObservers(updadeDisable);*/
 	  
       let updateSport = new UpdateSport(this.view);
       this.model.addObservers(updateSport);
-
-      //  action
-      /*let actionPlus = (event) => {
-        this.model.plus();
-      }
-
-      let actionMinus = (event) => {
-        this.model.minus();
-      }
-
-      this.view.buttonPlus.addEventListener('click', actionPlus);
-      this.view.buttonMinus.addEventListener('click', actionMinus);*/
+      
+      let updateDate = new UpdateDate(this.view);
+      this.model.addObservers(updateDate);
+	  
+      let updateTime = new UpdateTime(this.view);
+      this.model.addObservers(updateTime);
+      
+      //action
 	  
       let actionAdd = (event) => {
       	this.model.setValue();
       }
 	  
       this.view.buttonAddSeance.addEventListener('click', actionAdd);
+      
+      //nécessaire à cet endrit pour que Call of Ball et Basketball soient affichés à l'initialisation de la page
+      //après que les observers aient été instanciés
+      actionAdd();
 
       // permet de lancer une fois les observer pour initialiser la vue
       //this.model.setValue(0);

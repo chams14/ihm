@@ -9,16 +9,15 @@ class Model extends Observable {
 
     constructor(){
         super();
-        //this.x = 0;
+        
+        this.title = "Call of Ball";
+    	this.sport = "Basketball";
     }
 	
-	setValue() {
-		this.title = "Call of Ball";
-		this.sport = "Basketball";
-		
-		this.setChanged();
-        	this.notifyObservers();
-	}
+    setValue() {
+	this.setChanged();
+        this.notifyObservers();
+    }
 
     /*setValue(x){
 

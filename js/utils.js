@@ -13,9 +13,10 @@ class Observable {
 
   notifyObservers(object = null){
 
-    if(this.state == true){
+    if(this.state){
       for(let i = 0; i < this.observers.length; i++) {
         this.observers[i].update(this, object);
+        console.log('notifyObservers i:', i, 'length:', this.observers.length);
       }
     }
 

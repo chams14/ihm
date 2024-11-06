@@ -146,6 +146,12 @@ p, span, li, button {
   background-color: #333; /* Slightly lighter black on hover */
 }
 
+.participe-button:disabled {
+  background-color: grey; /* Change to your desired color */
+  cursor: not-allowed; /* Optional: change the cursor to indicate the button is disabled */
+  opacity: 0.5; /* Optional: make the button look disabled */
+}
+
 .dots {
   cursor: pointer; /* Pointer cursor on hover */
   margin-left: 10px; /* Space between name and dots */

@@ -1,57 +1,68 @@
-class updateTxt extends Observer {
-
+class updateButton extends Observer {
     constructor(view) {
         super();
         this.view = view;
     }
-    update(observable, object){
-        this.view.inputButton.value = observable.counter;
+
+    update(observable, object) {
+        if(this.view.participeButton.textContent == 'Quitter'){
+            this.view.participeButton.textContent = 'Participer';
+        }else {
+            this.view.participeButton.textContent = 'Quitter';
+        }
     }
 }
 
-class updateDisable extends Observer {
-    constructor(view, model) {
+class udpateParticipants extends Observer {
+    constructor(view) {
         super();
         this.view = view;
-        model.addObservers(this);
+    }
+    update(observable, object) {
+        if(this.view.participantsData != observable.user){
+            this.view.participantsData = observable.user;
+            console.log('udpateParticipants', this.view.participantsData);
+            this.view.displayParticipants();
+        }
+        if(this.view.participeButton.textContent == 'Quitter') {
+            this.view.participantsData = [];
+            this.view.displayParticipants();
+        }
+    }
+}
+
+class updateDate extends Observer {
+    constructor(view) {
+        super();
+        this.view = view;
     }
 
     update(observable, object) {
-        if (observable.counter == 0) {
-            this.view.decrementButton.disabled = true;
-        }else if(observable.counter == 10){
-            this.view.incrementButton.disabled = true;
-        }
-        else {
-            this.view.decrementButton.disabled = false;
-            this.view.incrementButton.disabled = false;
-        }
+        console.log('updateDate', observable.date);
+        this.view.date.textContent = observable.date;
+        this.view.heure.textContent = observable.heure;
+        this.view.detailsText.textContent = observable.detail;
     }
 }
 
 class Controler {
+    constructor(model) {
+        this.model = model;
+        this.view = new View();
 
-  constructor(model){
+        //update
+        this.model.addObservers(new updateButton(this.view,this.model));
+        this.model.addObservers(new udpateParticipants(this.view,this.model));
+        this.model.addObservers(new updateDate(this.view,this.model));
 
-      this.view = new View();
-      this.model = model;
+        //action
+        this.view.participeButton.addEventListener('click', () => this.participer());
+    }
 
-      // update
-      this.model.addObservers(new updateTxt(this.view));
-      this.model.addObservers(new updateDisable(this.view, this.model));
-
-      // action
-      this.view.incrementButton.addEventListener('click', ()=> this.increment());
-      this.view.decrementButton.addEventListener('click', () => this.decremente());
-
-
-  }
-
-  increment(){
-      this.model.incrementer();
-  }
-
-  decremente(){
-      this.model.decrementer();
-  }
+    participer() {
+        const user = [
+            { name: 'John Doe', username: '@johndoe' },
+        ];
+        this.model.setParticipants(user, '14h', '20 Nov. 2024', '-Tournois 5x5');
+    }
 }

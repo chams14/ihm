@@ -27,12 +27,12 @@ class View {
     this.dateHeureContainer.classList.add('date-container'); // Add class for styling
 
     this.date = document.createElement('h2');
-    this.date.textContent = '20 Nov. 2024';
+    this.date.textContent = '';
     this.date.classList.add('date'); // Add class for styling
     this.dateHeureContainer.appendChild(this.date);
 
     this.heure = document.createElement('h2');
-    this.heure.textContent = '14h';
+    this.heure.textContent = '';
     this.heure.classList.add('heure'); // Add class for styling
     this.dateHeureContainer.appendChild(this.heure);
 
@@ -47,7 +47,7 @@ class View {
     this.details.appendChild(this.detailsTitle);
 
     this.detailsText = document.createElement('p');
-    this.detailsText.textContent = '-Tournois 5x5';
+    this.detailsText.textContent = '';
     this.details.appendChild(this.detailsText);
 
     this.participants = document.createElement('div');
@@ -58,16 +58,43 @@ class View {
     this.participantsTitle.classList.add('centered-title'); // Add class for styling
     this.participants.appendChild(this.participantsTitle);
 
-    let participantsList = document.createElement('ul');
-    participantsList.classList.add('participants-list'); // Add class for styling
+    this.participantsList = document.createElement('ul');
+    this.participantsList.classList.add('participants-list'); // Add class for styling
 
-    const participants = [
-      { name: 'John Doe', username: '@johndoe' },
-      { name: 'Jane Doe', username: '@janedoe' },
-      { name: 'Johnny Doe', username: '@johnnydoe' }
+    this.participantsData = [{
+        name: 'Jean',
+        username: '@jean',
+        }, {
+        name: 'Paul',
+        username: '@paul',
+        },
     ];
 
-    participants.forEach((participant, index) => {
+    this.displayParticipants();
+
+
+    this.participants.appendChild(this.participantsList);
+
+    this.participeButton = document.createElement('button');
+    this.participeButton.textContent = 'Participer';
+    this.participeButton.classList.add('participe-button'); // Add class for styling
+    this.participants.appendChild(this.participeButton);
+
+    let nodeParticipants = document.querySelector('#participants');
+    nodeParticipants.appendChild(this.participants);
+
+    let nodeDetails = document.querySelector('#details');
+    nodeDetails.appendChild(this.details);
+
+    let nodeUnderTop = document.querySelector('#under-top');
+    nodeUnderTop.appendChild(this.underTop);
+
+    let nodeTop = document.querySelector('#top');
+    nodeTop.appendChild(this.top);
+  }
+
+  displayParticipants(){
+    this.participantsData.forEach((participant, index) => {
       let listItem = document.createElement('li');
       listItem.classList.add('participant-item'); // Add class for styling
 
@@ -97,26 +124,7 @@ class View {
       listItem.appendChild(img);
       listItem.appendChild(nameContainer); // Append the name container
       listItem.appendChild(dots); // Append the dots to the participant item
-      participantsList.appendChild(listItem);
+      this.participantsList.appendChild(listItem);
     });
-
-    this.participants.appendChild(participantsList);
-
-    this.participeButton = document.createElement('button');
-    this.participeButton.textContent = 'Participer';
-    this.participeButton.classList.add('participe-button'); // Add class for styling
-    this.participants.appendChild(this.participeButton);
-
-    let nodeParticipants = document.querySelector('#participants');
-    nodeParticipants.appendChild(this.participants);
-
-    let nodeDetails = document.querySelector('#details');
-    nodeDetails.appendChild(this.details);
-
-    let nodeUnderTop = document.querySelector('#under-top');
-    nodeUnderTop.appendChild(this.underTop);
-
-    let nodeTop = document.querySelector('#top');
-    nodeTop.appendChild(this.top);
   }
 }

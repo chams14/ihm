@@ -63,6 +63,6 @@ class Controler {
         const user = [
             { name: 'John Doe', username: '@johndoe' },
         ];
-        this.model.setParticipants(user, '14h', '20 Nov. 2024', '-Tournois 5x5');
+        this.model.setParticipants(user);
     }
 }

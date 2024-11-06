@@ -3,29 +3,9 @@ class udpateParticipants extends Observer {
         super();
         this.view = view;
     }
-    update(observable, object) {
-        //Check if user is already in participantsData
-        let isParticipating = false;
-        for (let i = 0; i < this.view.participantsData.length; i++) {
-            if (this.view.participantsData[i].username == observable.user.username) {
-                isParticipating = true;
-            }
-        }
-        if(!isParticipating){//If user is not in participantsData add him
-            this.view.participantsData[this.view.participantsData.length] = observable.user;
-            this.view.displayParticipants();
-        }
-
-        //remove user from participantsData
-        //=='Quitter' means user clicked on "Quitter"
-        if(this.view.participeButton.textContent == 'Quitter'){
-            for (let i = 0; i < this.view.participantsData.length; i++) {
-                if (this.view.participantsData[i].username == observable.user.username) {
-                    this.view.participantsData.splice(i, 1);
-                }
-            }
-            this.view.displayParticipants();
-        }
+    update(observable, objet) {
+        this.view.participantsData = observable.participants;
+        this.view.displayParticipants();
     }
 }
 
@@ -36,15 +16,15 @@ class updateButton extends Observer {
     }
 
     update(observable, object) {
-        if(this.view.participeButton.textContent == 'Quitter'){
-            this.view.participeButton.textContent = 'Participer';
-        }else {
+        if(observable.isParticipating()) {
             this.view.participeButton.textContent = 'Quitter';
+        }else{
+            this.view.participeButton.textContent = 'Participer';
         }
     }
 }
 
-class updateDate extends Observer {
+class updateData extends Observer {
     constructor(view) {
         super();
         this.view = view;
@@ -54,6 +34,8 @@ class updateDate extends Observer {
         this.view.date.textContent = observable.date;
         this.view.heure.textContent = observable.heure;
         this.view.detailsText.textContent = observable.detail;
+        this.view.participantsData = observable.participants;
+        this.view.displayParticipants();
     }
 }
 
@@ -61,24 +43,32 @@ class Controler {
     constructor(model) {
         this.model = model;
         this.view = new View();
+
         //init
-        const updateDateObserver = new updateDate(this.view, this.model);
+        const loadData = new updateData(this.view, this.model);
+        loadData.update(this.model);
+        const loadButton = new updateButton(this.view, this.model);
+        loadButton.update(this.model);
 
         //update
         this.model.addObservers(new udpateParticipants(this.view,this.model));
         this.model.addObservers(new updateButton(this.view,this.model));
-        this.model.addObservers(updateDateObserver);
 
         //action
         this.view.participeButton.addEventListener('click', () => this.participer());
-
-        //init
-        updateDateObserver.update(this.model);
     }
 
     participer() {
-        const user =
-            { name: 'John Doe', username: '@johndoe' };
-        this.model.setParticipants(user);
+        this.model.setParticipants();
+    }
+
+    isParticipating() {
+        let isParticipating = false;
+        for (let i = 0; i < this.view.participantsData.length; i++) {
+            if (this.view.participantsData[i].username === this.model.user.username) {
+                isParticipating = true;
+            }
+        }
+        return isParticipating;
     }
 }

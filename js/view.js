@@ -61,14 +61,7 @@ class View {
     this.participantsList = document.createElement('ul');
     this.participantsList.classList.add('participants-list'); // Add class for styling
 
-    this.participantsData = [{
-        name: 'Jean',
-        username: '@jean',
-        }, {
-        name: 'Paul',
-        username: '@paul',
-        },
-    ];
+    this.participantsData = [];
 
     this.displayParticipants();
 

@@ -94,6 +94,7 @@ class View {
   }
 
   displayParticipants(){
+    this.participantsList.innerHTML = ''; // Clear the list before adding the updated data
     this.participantsData.forEach((participant, index) => {
       let listItem = document.createElement('li');
       listItem.classList.add('participant-item'); // Add class for styling

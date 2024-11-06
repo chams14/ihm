@@ -3,7 +3,6 @@ class Observable {
 
   constructor(){
     this.observers = [];
-    console.log('observable');
     this.state = false;
   }
 
@@ -16,7 +15,7 @@ class Observable {
     if(this.state){
       for(let i = 0; i < this.observers.length; i++) {
         this.observers[i].update(this, object);
-        console.log('notifyObservers i:', i, 'length:', this.observers.length);
+        console.log('notifyObservers i:', this.observers[i]);
       }
     }
 

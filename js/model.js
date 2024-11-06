@@ -1,26 +1,35 @@
+
+
 // implementation class
+
 class Model extends Observable {
-    static MAX = 10;
-    static MIN = 0;
 
     constructor(){
         super();
-        this.x = 0;
     }
 
-    setValue(x){
-        if(x <= Model.MAX && x >= Model.MIN){
-            this.x = x;
-        }
-        this.setChanged();
-        this.notifyObservers();
+}
+
+class Lieu {
+    constructor(image, nom, note,  adresse, codePostal, ville, horaires, telephone, site, seances) {
+        this.image = image;
+        this.nom = nom;
+        this.note = note;
+        this.adresse = adresse;
+        this.codePostal = codePostal;
+        this.ville = ville;
+        this.horaires = horaires;
+        this.telephone = telephone;
+        this.site = site;
+        this.seances = seances;
     }
 
-    plus(){
-        this.setValue(this.x + 1);
-    }
+}
 
-    minus(){
-        this.setValue(this.x - 1);
+class Seance {
+    constructor(nom, date, heure) {
+        this.nom = nom;
+        this.date = date;
+        this.heure = heure;
     }
 }

@@ -11,8 +11,7 @@ class View {
             <p id="ville">NANTES</p>
           </div>
         </div>
-        <button id="btnAmi" class="btn btn-light border">
-        </button>
+        <button id="btnAmi" class="btn btn-light border inactive"></button>
       </div>
 
       <div class="autres">
@@ -68,47 +67,5 @@ class View {
 
     let nodeParent = document.querySelector('#outer');
     nodeParent.appendChild(this.div);
-  }
-
-  calendrier(date) {
-    this.tbody.innerHTML = " "; // Vide le tableau pour régénérer les jours
-    
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    
-    // Obtenir le premier jour du mois et le dernier jour du mois
-    const firstDay = new Date(year, month, 1).getDay(); // 0 = Dimanche, 1 = Lundi
-    const lastDate = new Date(year, month + 1, 0).getDate(); // Dernier jour du mois
-    
-    // Ajuster le premier jour pour que lundi soit le premier jour de la semaine
-    const startDay = (firstDay === 0 ? 6 : firstDay - 1);
-
-    let row = document.createElement('tr');
-    let day = 1;
-
-    // Créer des cellules vides avant le premier jour du mois
-    for (let i = 0; i < startDay; i++) {
-        const cell = document.createElement('td');
-        row.appendChild(cell);
-    }
-
-    // Créer des cellules pour chaque jour du mois
-    for (let i = startDay; i < 7; i++) {
-        const cell = document.createElement('td');
-        cell.innerText = day++;
-        row.appendChild(cell);
-    }
-    this.tbody.appendChild(row);
-
-    // Continuer à ajouter des jours
-    while (day <= lastDate) {
-        row = document.createElement('tr');
-        for (let i = 0; i < 7 && day <= lastDate; i++) {
-            const cell = document.createElement('td');
-            cell.innerText = day++;
-            row.appendChild(cell);
-        }
-        this.tbody.appendChild(row);
-    }
   }
 }

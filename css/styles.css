@@ -1,4 +1,6 @@
-html {}
+html {
+  font-size: 15px;
+}
 
 body {
   min-height: 100%;
@@ -60,26 +62,27 @@ body {
 }
 
 #nom{
-  font-family:'Courier New';
-  font-size: 4rem;
+  font-family:'Courier New'; 
+  font-size: 5rem;
 }
 
 .info{
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-left: 2rem;
   line-height: 0.75;
 }
 
 .info #ville{
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 /* bouton ajout */
 .btn {
   background-color: black;
   color:white;
+  font-size: 1.25rem;
 }
 
 .inactive{
@@ -109,7 +112,7 @@ body {
   margin-right: 1rem;
 }
 
-/* calendrier */
+  /* calendrier */
 .calendrier {
   display: flex;
   flex-direction: column;
@@ -149,60 +152,112 @@ td {
   vertical-align: top;
 }
 
-/*.slider{
-  width: 400px;
-  height: 15px;
-  border-radius: 5px;
-}*/
-
-.slider {
-  -webkit-appearance: none;
-  width: 30%;
-  height: 15px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 1.0;
+.seance_cal{
+  background-color: orange;
+  padding:0.5rem;
+  width:fit-content;
 }
 
-.slider:hover {
-  opacity: 1;
+/* style seance*/
+.seance_details.lieu{
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  background: #5CDB95;
-  cursor: pointer;
+.lieu {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-
-.menu {
-  width: 120px;
-  background-color: #8EE4AF;
-  box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.5);
-  position: fixed;
-  display: none;
+.lieu img{
+  height: 5rem;
 }
 
-.menu-options {
-  list-style: none;
-  padding: 10px 0;
+.lieu .text{
+  padding-top: 1rem;
+  color : #000000;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 0.75;
 }
 
-.menu-option {
-  font-weight: 500;
-  font-size: 14px;
-  padding: 10px 40px 10px 20px;
-  cursor: pointer;
-
-  &:hover {
-    background: rgba(0, 0, 0, 1.0);
-  }
+.lieu h2{
+  font-weight: bold;
+  font-size: 2rem;
 }
 
-.disabled{
-    pointer-events:none;
-    opacity:0.4;
+.date_seance{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+.date_seance h4 {
+  font-size: 1.5rem;
+  background-color: #d0d0d0; 
+  padding: 10px 20px; 
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
+  text-align: center; /* Centrer le texte */
+  margin: 0 10px; /* Espacement entre les éléments */
+}
+
+.details{
+  border-top: 0.05rem solid grey;
+  flex-direction: column;
+  display:flex;
+  padding: 2rem;
+  font-size: 1.25rem;
+}
+
+#btnParticipation{
+  text-align: left;
+  margin:auto;
+}
+
+.inscrit ul{
+  padding: 0;
+  list-style-type: none;
+}
+
+.inscrit li{
+  margin-top: 2rem;
+  transition: background-color 1s ease-in-out;
+}
+ 
+.green{
+  background-color: greenyellow;
+  transition: background-color 1s ease-in-out;
+}
+
+.inscrit a{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color:black;
+  text-decoration: none;
+}
+
+.inscrit img{
+  width:2rem;
+}
+
+.p img{
+  width: 8rem;
+}
+
+.p{
+  display: flex;
+  align-items: center;
+}
+
+.info_p{
+  text-align: center;
+  font-size: 1.25rem;
+  margin-left: 2rem;
+  line-height: 0.75;
 }

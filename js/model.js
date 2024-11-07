@@ -33,8 +33,15 @@ class Model extends Observable {
     getLieu() {
         return this.lieu;
     }
-}
 
+
+    ajouterSeance(seance) {
+        this.lieu.seances.push(seance);
+        this.setChanged();
+        this.notifyObservers(seance);
+    }
+
+}
 
 class Lieu {
     constructor(image, nom, note,  adresse, codePostal, ville, horaires, telephone, site, seances) {
@@ -70,5 +77,4 @@ class Horaire {
         this.heureDebut = heureDebut;
         this.heureFin = heureFin;
     }
-
 }

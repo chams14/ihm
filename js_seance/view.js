@@ -1,26 +1,24 @@
 class View {
-  constructor(){
+  constructor({lieu, sport, seance}){
     this.div = document.createElement('div');
     this.div.innerHTML = `
       <div class="seance_details lieu">
         <div class="lieu"> 
           <img src="/image/localisation.png" alt="loc">
           <div class="text">
-            <h2>Call Of Ball</h2>
-            <p>Basketball</p>
+            <h2>${lieu}</h2>
+            <p>${sport}</p>
           </div>
         </div>
         <div class="date_seance">
-          <h4 class=jour>20 Novembre</h4>
-          <h4 class=heure>14h</h4>
+          <h4 class=jour></h4>
+          <h4 class=heure></h4>
         </div>
       </div>
       <div class="seance_details details">
         <h3>DÉTAILS</h3>
         <ul>
-          <li>Tournois 5x5</li>
-          <li>Équipes faites sur place</li>
-          <li>Tous niveaux</li>
+        ${seance.details.map(info => `<li>${info}</li>`).join('')}
         </ul>
       </div>
       <div class="seance_details details">

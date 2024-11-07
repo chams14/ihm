@@ -28,10 +28,14 @@
         "amisBtn" :true,
         "seance" : [{"lieu": "Call Of Ball", "date": "2024-11-06T14:30:00"}, {"lieu": "Le Set", "date": "2024-11-22T18:00:00"}, {"lieu": "Call Of Ball", "date": "2024-12-18T17:00:00"}]
     },
-    "callOfBall" :{
+    "s1" :{
       "lieu" : "Call Of Ball",
-      "seance": [
-        {"date":"2024-11-06T14:30:00", "details": ["Tournois 5x5","Équipes faites sur place","Tous niveaux"], "participants": [{"nom": "Emma", "pseudo": "@emma_44", "photo":"/image/emma.png"}]}
-      ]
+      "sport" : "Basketball",
+      "seance": {"date":"2024-11-06T14:30:00", "details": ["Tournois 5x5","Équipes faites sur place","Tous niveaux"], "participants": [{"nom": "Emma", "pseudo": "@emma_44", "photo":"/image/emma.png"}]}
+    },
+    "s2" :{
+      "lieu" : "Call Of Ball",
+      "sport" : "Basketball",
+      "seance": {"date":"2024-12-18T17:00:00", "details": ["Travail de précision et vitesse","Niveau intermédiaire"], "participants": []}
     }
 }

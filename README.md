@@ -12,16 +12,16 @@ L’objectif principal est de faciliter la mise en relation de passionnés parta
 <span style="font-size: 18px; color: red;">⚠️ <strong>1ère page à ouvrir </strong> → lieu.html</span>
 
 <strong>Profil</strong><br>
-Comme chaque page à son model, les données sont stocker dans un fichier data.json afin d'éviter de copier plusieurs fois (dans chaque model).
+Comme chaque page a son modèle, les données sont stockées dans un fichier data.json afin d'éviter de copier plusieurs fois (dans chaque modèle).
 Le fichier json remplace l'API que l'application est censé avoir.
 
-Les pages affichant les infos d'une séance ou d'un profil sont gérer avec le passage en paramètre d'un id pour éviter de créer plusieurs pages. Pour pouvoir accès à ces pages il faut donc passer par :
+Les pages affichant les infos d'une séance ou d'un profil sont gérées avec le passage en paramètre d'un id pour éviter de créer plusieurs pages. Pour pouvoir accéder à ces pages il faut donc passer par :
 - /seance.html?seance=s1
 - /seance.html?seance=s2
 - /profil.html?user=emma
 - /profil.html?user=max
 
-On y a accès aussi en passant par la page lieu.html
+On y a accès aussi en passant par la page **lieu.html**
 
 ## Répartitions : qui a travaillé sur quoi
 - Lieu (/lieu): Thomas

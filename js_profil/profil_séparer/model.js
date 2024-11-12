@@ -6,7 +6,7 @@ class Model extends Observable {
         this.date = this.format(this.currentDate);
         this.amis = '<img src="/image/ajouter.png" alt="ajouter">AJOUTER EN AMI(E)';
         this.participation = 'Participer';
-        this.seanceEmma = [{lieu: "Call Of Ball", date: new Date(2024, 10, 6, 14, 30)}];
+        this.seanceEmma = [{lieu: "Call Of Ball", date: new Date(2024, 10, 30, 14, 30)}];
         this.seanceMax = [];
     }
 

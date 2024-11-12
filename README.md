@@ -5,7 +5,7 @@ Lien github : https://github.com/chams14/ihm
 ## Sujet
 Implémentation d'une application mobile orientée sport en suivant les principes du design centré utilisateur.
 
-Objectifs de l'applications : <br>
+Objectifs de l'application : <br>
 L’objectif principal est de faciliter la mise en relation de passionnés partageant la même discipline sportive, leur permettant ainsi de se rencontrer et d'organiser des activités communes directement via l’application.
 
 ## Fonctionnement 

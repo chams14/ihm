@@ -48,7 +48,7 @@ class View extends Observer {
                             </div>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-dark btn-lg m-1">Création de séance</button>
+                            <button id="creation" class="btn btn-dark btn-lg m-1">Création de séance</button>
                         </div>
                     </hr>
                 </hr>

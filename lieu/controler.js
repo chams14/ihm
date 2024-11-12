@@ -9,6 +9,8 @@ class Controler {
         this.view.controller = this;
         const lieu = this.model.getLieu();
         this.afficherLieu(lieu);
+
+        document.getElementById('creation').addEventListener('click', ()=>{alert('Redirection vers la page permettant de créer une séance')});
     }
 
     update() {

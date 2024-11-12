@@ -31,7 +31,7 @@ class View extends Observer {
                                 <p class="mb-0 fs-4"><span id="lieu-telephone"></span></p>
                             </div>
                             <div class="bg-light p-5 rounded mb-4 d-flex align-items-center">
-                                <p class="mb-0 fs-4"><a id="lieu-site" href=""></a></p>
+                                <p class="mb-0 fs-4"><a id="lieu-site" href="" class="text-decoration-none text-body"></a></p>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ class View extends Observer {
                             </div>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-dark btn-lg m-1">Ajouter une séance</button>
+                            <button class="btn btn-dark btn-lg m-1">Création de séance</button>
                         </div>
                     </hr>
                 </hr>
@@ -58,7 +58,7 @@ class View extends Observer {
         nodeParent.appendChild(this.div);
 
         this.div.querySelector("#lieu-horaires").addEventListener("click", () => {
-            this.afficherHorairesSemaine();
+            this.controller.afficherHorairesSemaine();
         });
     }
 }

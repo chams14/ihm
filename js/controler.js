@@ -4,16 +4,15 @@ class Controler {
         this.view = new View();
         this.model = model;
 
-        this.model.addObservers(this); // Associe le contrôleur en tant qu'observateur du modèle
+        this.model.addObservers(this);
 
-        this.view.controller = this;  // Lien vers le contrôleur depuis la vue
-
+        this.view.controller = this;
         const lieu = this.model.getLieu();
-        this.afficherLieu(lieu);  // Appel de la nouvelle méthode pour afficher le lieu
+        this.afficherLieu(lieu);
     }
 
     update() {
-        this.afficherLieu(this.model.getLieu());  // Met à jour l'interface utilisateur avec le lieu actuel
+        this.afficherLieu(this.model.getLieu());
     }
 
     afficherLieu(lieu) {
@@ -42,7 +41,6 @@ class Controler {
 
         document.getElementById('lieu-seances').innerHTML = seancesHTML;
 
-        // Écouteur pour chaque bouton de séance (redirection)
         document.querySelectorAll('.seance-btn').forEach(button => {
             button.addEventListener('click', (event) => {
                 const seanceId = event.target.getAttribute('data-id');
@@ -51,7 +49,6 @@ class Controler {
             });
         });
 
-        // Écouteur pour chaque bouton de suppression
         document.querySelectorAll('.supprimer-btn').forEach(button => {
             button.addEventListener('click', (event) => {
                 event.stopPropagation();

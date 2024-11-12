@@ -12,7 +12,7 @@ class Model extends Observable {
 
     creerLieu() {
         return new Lieu(
-            'image/callofball.jpg',
+            './image/lieu.png',
             'Call Of Ball',
             4.2,
             '3 rue de la Jalousie',
@@ -28,9 +28,8 @@ class Model extends Observable {
             '06 76 95 06 68',
             'www.callofball.com',
             [
-                new Seance('Tournoi 5x5', '2024-10-23', '10:00'),
-                new Seance('Tournoi 3x3', '2024-10-23', '12:00'),
-                new Seance('Séance libre', '2024-10-23', '15:00')
+                new Seance('Tournoi 5x5', '2024-11-30', '14:30'),
+                new Seance('Travail de précision et vitesse', '2024-12-18', '17:00')
             ]
         );
     }

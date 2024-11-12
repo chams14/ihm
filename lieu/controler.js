@@ -55,7 +55,7 @@ class Controler {
             button.addEventListener('click', (event) => {
                 const seanceId = event.target.getAttribute('data-id');
                 console.log("Séance ID:", seanceId);
-                window.location.href = window.location.origin + '/profil/seance.html?seance=s' + seanceId;
+                window.location.href = './profil/seance.html?seance=s' + seanceId;
             });
         });
 

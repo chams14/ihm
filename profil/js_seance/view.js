@@ -4,7 +4,7 @@ class View {
     this.div.innerHTML = `
       <div class="seance_details lieu">
         <div class="lieu"> 
-          <img src="/image/localisation.png" alt="loc">
+          <img src="../image/localisation.png" alt="loc">
           <div class="text">
             <h2>${lieu}</h2>
             <p>${sport}</p>

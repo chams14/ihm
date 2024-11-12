@@ -26,7 +26,7 @@ class Model extends Observable {
                 new Horaire('vendredi')
             ],
             '📞 06 76 95 06 68',
-            '🛜 www.callofball.com',
+            'www.callofball.com',
             [
                 new Seance('Tournoi 5x5', '2024-11-30', '14:30'),
                 new Seance('Travail de précision et vitesse', '2024-12-18', '17:00')

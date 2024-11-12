@@ -42,6 +42,14 @@ body {
   position: absolute;
 }
 
+/* style page lieu */
+.fav-icon {
+  width: 35px;
+  height: auto;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
 /*style profil*/
 .profil{
   display: flex;

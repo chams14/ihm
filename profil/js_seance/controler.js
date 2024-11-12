@@ -1,24 +1,35 @@
-class UpdateTxt_Seance extends Observer {
+class UpdateParticipants extends Observer {
   constructor(view){
     super();
     this.view = view;
   }
   update(observable, object){
     this.view.participation.innerText = observable.participation;
+  } 
+}
+
+class UpdateDate extends Observer {
+  constructor(view){
+    super();
+    this.view = view;
+  }
+  update(observable, object){
     this.view.jour.innerText = observable.dateS;
     this.view.heure.innerText = observable.horaires;
   } 
 }
 
 class Controler{
-  constructor(model){
-    
+  constructor(model, data){
     this.model = model;
-    this.view = new View();
+    this.view = new View(data);
 
     // update
-    let updateTxt  = new UpdateTxt_Seance(this.view);
-    this.model.addObservers(updateTxt);
+    let updateParticipants  = new UpdateParticipants(this.view);
+    this.model.addObservers(updateParticipants);
+
+    let updateDate  = new UpdateDate(this.view);
+    this.model.addObservers(updateDate);
 
     //  action 
     this.view.back.addEventListener('click', ()=>{window.history.back();});

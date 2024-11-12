@@ -22,7 +22,7 @@ Les pages affichant les infos d'une séance ou d'un profil sont gérées avec le
 
 On y a accès aussi en passant par la page **lieu.html**
 
-## Répartitions : qui a travaillé sur quoi
+## Répartition : qui a travaillé sur quoi
 - Lieu (/lieu): Thomas
 - Profil (/profil): Maëlle (/profil/seance, ma version de seance afin de faire le lien avec les profils)
 - Séance (/seance): Denez

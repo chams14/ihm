@@ -18,6 +18,14 @@ class Controler {
     afficherLieu(lieu) {
         this.view.lieu = lieu;
 
+        document.getElementById('fav').addEventListener('click', (event) => {
+            const favIcon = event.target;
+            if (favIcon.src.includes('star.png')) {
+                favIcon.src = './image/star2.png';
+            } else {
+                favIcon.src = './image/star.png';
+            }
+        });
         document.getElementById('lieu-image').src = lieu.image;
         document.getElementById('lieu-image').alt = lieu.nom;
         document.getElementById('lieu-nom').textContent = lieu.nom;

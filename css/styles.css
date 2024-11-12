@@ -107,3 +107,11 @@ body {
     pointer-events:none;
     opacity:0.4;
 }
+
+.fav-icon {
+  width: 35px;
+  height: auto;
+  cursor: pointer;
+  margin-left: 10px;
+}
+

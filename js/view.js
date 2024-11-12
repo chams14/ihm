@@ -5,8 +5,9 @@ class View extends Observer {
         this.div.innerHTML =
             `<div class="container mt-5">
                 <div class="row">
-                    <div class="col-12">
-                        <h2 id="lieu-nom" class="text-left mb-4 display-3"></h2>
+                    <div class="col-12 d-flex align-items-center justify-content-between">
+                        <h2 id="lieu-nom" class="text-left mb-4 display-3">Nom du lieu</h2>
+                        <img id="fav" src="./image/star.png" alt="favoris" class="fav-icon">
                     </div>
                 </div>
                 <div class="row">

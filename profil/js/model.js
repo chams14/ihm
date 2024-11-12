@@ -1,20 +1,20 @@
 // implementation class
 class Model extends Observable {
-    constructor(){
+    constructor(seanceUser){
         super();
         this.currentDate = new Date();
         this.date = this.format(this.currentDate);
-        this.amis = '<img src="/image/ajouter.png" alt="ajouter">AJOUTER EN AMI(E)';
+        this.amis = '<img src="../image/ajouter.png" alt="ajouter">AJOUTER EN AMI(E)';
         this.participation = 'Participer';
-        this.seanceEmma = [{lieu: "Call Of Ball", date: new Date(2024, 10, 6, 14, 30)}];
-        this.seanceMax = [];
+
+        this.seance = seanceUser;
     }
 
     setAmis(action){
         if(action === "ajouter"){
-            this.amis = '<img src="/image/ajouter.png" alt="ajouter">AJOUTER EN AMI(E)';
+            this.amis = '<img src="../image/ajouter.png" alt="ajouter">AJOUTER EN AMI(E)';
         } else {
-            this.amis = '<img src="/image/retirer.png" alt="retirer">RETIRER DES AMI(E)';
+            this.amis = '<img src="../image/retirer.png" alt="retirer">RETIRER DES AMI(E)';
         }
         this.setChanged();
         this.notifyObservers();
@@ -79,12 +79,13 @@ class Model extends Observable {
             const cell = document.createElement('td');
             let currentDate = new Date(year, month, day)
             cell.innerText = day++;
-            this.seanceEmma.forEach(s => {
-                if(s.date.toDateString() === currentDate.toDateString()){
+            this.seance.forEach(s => {
+                let seanceDate = new Date(s.date)
+                if(seanceDate.toDateString() === currentDate.toDateString()){
                     const divS = document.createElement('div');
                     divS.classList.add('seance_cal');
-                    let heure = s.date.getHours()
-                    let minute = s.date.getMinutes()
+                    let heure = seanceDate.getHours()
+                    let minute = seanceDate.getMinutes()
                     heure = heure < 10 ? '0'+heure : heure;
                     minute = minute < 10 ? '0'+minute : minute;
                     divS.innerHTML = s.lieu+ "<br>"+ heure +"h"+ minute;
@@ -102,17 +103,18 @@ class Model extends Observable {
                 const cell = document.createElement('td');
                 let currentDate = new Date(year, month, day)
                 cell.innerText = day++;
-                this.seanceEmma.forEach(s => {
-                  if(s.date.toDateString() === currentDate.toDateString()){
-                    const divS = document.createElement('div');
-                    divS.classList.add('seance_cal');
-                    let heure = s.date.getHours()
-                    let minute = s.date.getMinutes()
-                    heure = heure < 10 ? '0'+heure : heure;
-                    minute = minute < 10 ? '0'+minute : minute;
-                    divS.innerHTML = "<strong>"+s.lieu+"</strong>"+ "<br>"+ heure +"h"+ minute;
-                    cell.appendChild(divS);
-                  }
+                this.seance.forEach(s => {
+                    let seanceDate = new Date(s.date)
+                    if(seanceDate.toDateString() === currentDate.toDateString()){
+                        const divS = document.createElement('div');
+                        divS.classList.add('seance_cal');
+                        let heure = seanceDate.getHours()
+                        let minute = seanceDate.getMinutes()
+                        heure = heure < 10 ? '0'+heure : heure;
+                        minute = minute < 10 ? '0'+minute : minute;
+                        divS.innerHTML = "<strong>"+s.lieu+"</strong>"+ "<br>"+ heure +"h"+ minute;
+                        cell.appendChild(divS);
+                    }
                 })
                 row.appendChild(cell);
             }

@@ -26,8 +26,8 @@ class Model extends Observable {
         this.seance.participants.forEach(p => {
             const li = document.createElement('li');
             const a = document.createElement('a');
-            a.href = `/profil.html?user=${p.nom.toLowerCase()}`;
-            a.innerHTML = `<div class="p"><img src="${p.photo}" alt="${p.nom}"><div class="info_p"><h3>${p.nom}</h3><p>${p.pseudo}</p></div></div><img class="span" src="/image/details.png" alt="span">`
+            a.href = `./profil.html?user=${p.nom.toLowerCase()}`;
+            a.innerHTML = `<div class="p"><img src="../${p.photo}" alt="${p.nom}"><div class="info_p"><h3>${p.nom}</h3><p>${p.pseudo}</p></div></div><img class="span" src="../image/details.png" alt="span">`
             li.appendChild(a);
             if(p.nom == "Max"){
                 li.classList.add('green');

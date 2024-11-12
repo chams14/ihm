@@ -1,0 +1,179 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em; /* Increase the base font size */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.9em; /* Increase the font size for headings */
+}
+
+p, span, li, button {
+  font-size: 1.2em; /* Increase the font size for paragraphs, spans, list items, and buttons */
+}
+
+#top, #under-top, #details, #participants {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.disabled{
+    pointer-events:none;
+    opacity:0.4;
+}
+
+.centered-title {
+  margin: 0 auto; /* Centers the title */
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center; /* Ensure text is centered */
+}
+
+.top-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid rgb(0, 0, 0, .3);; /* Adds a bottom border to separate containers */
+  padding: 10px 0; /* Adds some padding for better spacing */
+  width: 100%;
+}
+.svg-image {
+  cursor: pointer; /* Pointer cursor on hover */
+  width: 100px;
+  height: 100px;
+}
+
+.under-top-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-bottom: 3px solid rgb(0, 0, 0, .3);; /* Adds a bottom border to separate containers */
+  padding: 10px 0;
+  width: 100%;
+}
+.date-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date, .heure {
+  font-size: 1.2em; /* Taille de police légèrement plus grande */
+  color: #333; /* Couleur de texte gris foncé */
+  background-color: #d0d0d0; /* Couleur de fond légèrement grise */
+  padding: 10px 20px; /* Espacement interne pour un meilleur rendu */
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
+  text-align: center; /* Centrer le texte */
+  margin: 0 10px; /* Espacement entre les éléments */
+}
+
+
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-bottom: 3px solid rgb(0, 0, 0, .3);; /* Adds a bottom border to separate containers */
+    padding: 10px 0; /* Adds some padding for better spacing */
+    width: 100%;
+}
+
+.participants {
+  flex-grow: 1; /* Allow the participants section to grow and take available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the bottom */
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.participants-list {
+  list-style: none;
+  padding: 0;
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.participant-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.participant-name {
+  flex-grow: 1;
+  text-align: center;
+}
+.name-container {
+  display: flex;
+  flex-direction: column; /* Stack name and username vertically */
+  align-items: center; /* Center the text */
+}
+
+.participant-username {
+  font-size: 0.8em; /* Smaller font size */
+  color: #666; /* Lighter color */
+}
+
+.participe-button {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  border: none; /* Remove default border */
+  border-radius: 15px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for better spacing */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.participe-button:hover {
+  background-color: #333; /* Slightly lighter black on hover */
+}
+
+.participe-button:disabled {
+  background-color: grey; /* Change to your desired color */
+  cursor: not-allowed; /* Optional: change the cursor to indicate the button is disabled */
+  opacity: 0.5; /* Optional: make the button look disabled */
+}
+
+.dots {
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-left: 10px; /* Space between name and dots */
+  color: #333; /* Color of the dots */
+  position: relative; /* Required for the pseudo-element */
+}
+
+.dots::before {
+  content: ''; /* Empty content */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(82, 81, 81, 0.34); /* Dark background */
+  border-radius: 50%; /* Make it circular */
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s; /* Smooth transition */
+  z-index: -1; /* Place it behind the dots */
+}
+
+.dots:hover::before {
+  width: 20px; /* Desired width on hover */
+  height: 20px; /* Desired height on hover */
+}

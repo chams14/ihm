@@ -1,4 +1,4 @@
-fetch('/data.json')
+fetch('../profil/data.json')
     .then(response => response.json())
     .then(data => {
         const user = new URLSearchParams(window.location.search).get('user');

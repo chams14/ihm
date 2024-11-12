@@ -21,10 +21,11 @@ body {
 
 .top{
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  background-color: #5CDB95;
-  height: 100px;
+  height: 10vh;
+  border-bottom: 0.1rem solid grey;
+  padding:1vh;
 }
 
 .bottom{
@@ -38,8 +39,15 @@ body {
   margin-top: 10px;
 }
 
+#textTitle{
+  display: flex;
+  align-items: center;
+}
+
 #title{
-  color : #05386B;
+  color : #000000;
+  margin: 0;
+  font-weight: bold;
 }
 
 #titre {

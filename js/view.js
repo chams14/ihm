@@ -7,9 +7,6 @@ class View {
 
     this.div.innerHTML = `
         <div class="center">
-		<div id="seance">
-			<b>CRÉER UNE SÉANCE</b>
-		</div>
 		<div id="titre"> </div>
 		<div id="sport"> </div>
 		<input type="date" id="date">

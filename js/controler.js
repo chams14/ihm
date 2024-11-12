@@ -3,11 +3,15 @@ class Controler {
         this.view = new View();
         this.model = model;
 
-        // Abonnez la vue aux changements du modèle
         this.model.addObservers(this.view);
         this.view.controller = this;
 
         const lieu = this.model.getLieu();
         this.view.afficherLieu(lieu);
+    }
+
+    supprimerSeance(seanceId) {
+        console.log("Contrôleur: suppression de la séance ID", seanceId);
+        this.model.supprimerSeance(seanceId);
     }
 }

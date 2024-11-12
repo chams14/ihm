@@ -49,6 +49,8 @@ class View extends Observer {
                         <div class="text-center">
                             <button class="btn btn-dark btn-lg m-1">Ajouter une séance</button>
                         </div>
+                    </hr>
+                </hr>
             </div>`
         ;
 
@@ -58,15 +60,14 @@ class View extends Observer {
         this.div.querySelector("#lieu-horaires").addEventListener("click", () => {
             this.afficherHorairesSemaine();
         });
+    }
 
-        this.div.querySelector('button').addEventListener('click', () => {
-            const newSeance = new Seance('Nouvelle séance', '2024-10-24', '18:00');
-            this.controller.model.ajouterSeance(newSeance);
-        });
+    update() {
+        this.afficherLieu(this.lieu);
     }
 
     afficherLieu(lieu) {
-        this.lieu = lieu;
+        this.lieu = lieu
         document.getElementById('lieu-image').src = lieu.image;
         document.getElementById('lieu-image').alt = lieu.nom;
         document.getElementById('lieu-nom').textContent = lieu.nom;
@@ -78,19 +79,34 @@ class View extends Observer {
         this.afficherHorairesJour(lieu.horaires);
 
         const seancesHTML = lieu.seances.map(seance => `
-            <button class="btn btn-primary m-1 w-100 btn-lg" data-id="${seance.id}">
-                ${seance.nom} - ${seance.date} à ${seance.heure}
-            </button>
+            <div class="d-flex align-items-center w-100">
+                <button class="btn btn-primary m-1 w-100 btn-lg text-start seance-btn" data-id="${seance.id}">
+                    ${seance.nom} - ${seance.date} à ${seance.heure}
+                </button>
+                <button class="btn btn-danger m-1 btn-lg supprimer-btn" data-id="${seance.id}">
+                    ❌
+                </button>
+            </div>
         `).join('');
+
         document.getElementById('lieu-seances').innerHTML = seancesHTML;
 
-        document.querySelectorAll('#lieu-seances button').forEach(button => {
+        // Écouteur pour chaque bouton de séance (redirection)
+        document.querySelectorAll('.seance-btn').forEach(button => {
             button.addEventListener('click', (event) => {
                 const seanceId = event.target.getAttribute('data-id');
                 console.log("Séance ID:", seanceId);
-
-                // redirection de l'url vers la séance correspondante
                 window.location.href = window.location.origin + '/seance.html?seance=' + seanceId;
+            });
+        });
+
+        // Écouteur pour chaque bouton de suppression
+        document.querySelectorAll('.supprimer-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.stopPropagation(); // Empêche la propagation de l'événement de clic vers le bouton de séance
+                const seanceId = parseInt(event.target.getAttribute('data-id'), 10);
+                console.log("Suppression de la séance ID:", seanceId);  // Vérifie si l'ID est capturé
+                this.controller.supprimerSeance(seanceId); // Appel au contrôleur pour supprimer la séance
             });
         });
     }
@@ -123,16 +139,6 @@ class View extends Observer {
                 `<div>${horaire.jour} : ${horaire.heureDebut} - ${horaire.heureFin}</div>`
             ).join('');
             toggleIcon.textContent = "▲";
-        }
-    }
-
-
-    update(observable, object) {
-        console.log("Séance ajoutée");
-        if (object instanceof Seance) {
-            //alert(`Nouvelle séance ajoutée : ${object.nom}`);
-            this.afficherLieu(observable.getLieu());
-
         }
     }
 }

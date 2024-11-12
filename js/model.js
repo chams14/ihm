@@ -1,10 +1,15 @@
 class Model extends Observable {
     constructor() {
         super();
-        this.lieu = this.creerLieu(); // Crée un lieu par défaut au sein du modèle
+        this.lieu = this.creerLieu();
     }
 
-    // Méthode pour créer les données du lieu
+    supprimerSeance(seanceId) {
+        this.lieu.seances = this.lieu.seances.filter(seance => seance.id !== seanceId);
+        this.setChanged();
+        this.notifyObservers();
+    }
+
     creerLieu() {
         return new Lieu(
             'image/callofball.jpg',
@@ -33,18 +38,10 @@ class Model extends Observable {
     getLieu() {
         return this.lieu;
     }
-
-
-    ajouterSeance(seance) {
-        this.lieu.seances.push(seance);
-        this.setChanged();
-        this.notifyObservers(seance);
-    }
-
 }
 
 class Lieu {
-    constructor(image, nom, note,  adresse, codePostal, ville, horaires, telephone, site, seances) {
+    constructor(image, nom, note, adresse, codePostal, ville, horaires, telephone, site, seances) {
         this.image = image;
         this.nom = nom;
         this.note = note;
@@ -56,7 +53,6 @@ class Lieu {
         this.site = site;
         this.seances = seances;
     }
-
 }
 
 class Seance {

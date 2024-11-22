@@ -41,10 +41,12 @@ class Controler {
       const currentAction = this.model.amis.includes('AJOUTER') ? "ajouter" : "retirer";
       if(currentAction === "ajouter"){
         this.model.setAmis("retirer");
-        event.target.classList.remove('inactive');
+        event.target.classList.remove('inactive', 'btn-primary');
+        event.target.classList.add('btn-active');
       } else {
         this.model.setAmis("ajouter");
-        event.target.classList.add('inactive');
+        event.target.classList.remove('btn-active');
+        event.target.classList.add('inactive', 'btn-primary');
       }
     }
     if(this.view.amis){

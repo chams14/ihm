@@ -14,250 +14,33 @@ body {
   height: 100%;
 }
 
-/*style titre page*/
-.top{
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 10vh;
-  border-bottom: 0.1rem solid grey;
-  padding:1vh;
-}
-
-#textTitle{
-  display: flex;
-  align-items: center;
-}
-
-#title{
-  color : #000000;
-  margin: 0;
-  font-weight: bold;
-}
- 
-.top img{
-  left:0;
-  margin-left: 2.5vw;
-  height:3vh;
-  position: absolute;
-}
-
-/*style profil*/
-.profil{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin:1.5rem;
-}
-
-.person{
-  margin:2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.person img{
-  height: 15rem;
-}
-
+/* style d'écriture du nom*/
 #nom{
   font-family:'Courier New'; 
   font-size: 5rem;
 }
 
-.info{
-  text-align: center;
-  font-size: 2rem;
-  margin-left: 2rem;
-  line-height: 0.75;
-}
-
-.info #ville{
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-/* bouton ajout */
-.btn {
+/* couleur bouton ajouer/retirer amis */
+.btn-active {
   background-color: black;
-  color:white;
-  font-size: 1.25rem;
-}
-
-.inactive{
-  background-color: #007bff;
-}
-
-#btnAmi img{
-  height: 1.5rem;
-  margin-right: 0.5rem;
-}
-
-/* Logo */
-.autres{
-  margin:1.5rem 1.5rem 2.5rem 1.5rem;
-}
-
-.autres h3{
-  margin-bottom:1rem;
-}
-
-.logo{
-  display:flex;
-}
-
-.logo img{
-  height: 3rem;
-  margin-right: 1rem;
-}
-
-  /* calendrier */
-.calendrier {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding:1rem;
-}
-
-.head_cal{
-  display: flex;
-  justify-content: center;
-  gap:1rem;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.head_cal h3{
-  margin:0;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-th {
-  background-color: #000000;
   color: white;
-  text-align: center;
+  border-color: black;
 }
 
-td {
-  height:4rem;
-  text-align: left;
-  vertical-align: top;
+/* taille des logo */
+.info img{
+  height: 3rem;
 }
 
+/* séance calendrier */
 .seance_cal{
   background-color: orange;
-  padding:0.5rem;
-  width:fit-content;
 }
 
-/* style seance*/
-.seance_details.lieu{
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.lieu {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.lieu img{
-  height: 5rem;
-}
-
-.lieu .text{
-  padding-top: 1rem;
-  color : #000000;
-  text-align: center;
-  font-size: 1.5rem;
-  line-height: 0.75;
-}
-
-.lieu h2{
-  font-weight: bold;
-  font-size: 2rem;
-}
-
-.date_seance{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} 
-
-.date_seance h4 {
-  font-size: 1.5rem;
-  background-color: #d0d0d0; 
-  padding: 10px 20px; 
-  border-radius: 5px; /* Coins arrondis */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
-  text-align: center; /* Centrer le texte */
-  margin: 0 10px; /* Espacement entre les éléments */
-}
-
-.details{
-  border-top: 0.05rem solid grey;
-  flex-direction: column;
-  display:flex;
-  padding: 2rem;
-  font-size: 1.25rem;
-}
-
-#btnParticipation{
-  text-align: left;
-  margin:auto;
-}
-
-.inscrit ul{
-  padding: 0;
-  list-style-type: none;
-}
-
-.inscrit li{
-  margin-top: 2rem;
-  transition: background-color 1s ease-in-out;
-}
- 
+/* transition inscription */
 .green{
   background-color: greenyellow;
+}
+.transition_bg{
   transition: background-color 1s ease-in-out;
-}
-
-.inscrit a{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color:black;
-  text-decoration: none;
-}
-
-.inscrit img{
-  width:2rem;
-}
-
-.p img{
-  width: 8rem;
-}
-
-.p{
-  display: flex;
-  align-items: center;
-}
-
-.info_p{
-  text-align: center;
-  font-size: 1.25rem;
-  margin-left: 2rem;
-  line-height: 0.75;
 }

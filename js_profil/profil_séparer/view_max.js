@@ -2,45 +2,54 @@ class View {
   constructor(){
     this.div = document.createElement('div');
     this.div.innerHTML = `
-      <div class="profil">
-        <div class="person">
-          <img src="/image/max.png" alt="max">
-          <div class="info">
-            <h1 id="nom">Max</h1>
-            <p>@maxeffort</p>
-            <p id="ville">NANTES</p>
-            <button id="modifier" class="btn btn-light border">Modifier</button>
+      <div class="d-flex align-items-center py-3" style="border-bottom: 0.1rem solid grey;">
+        <img id="back" src="../../image/flèche.png" alt="retour" class="position-absolute start-0 ms-3" style="height:4vh;">
+        <div class="d-flex align-items-center justify-content-center w-100">
+          <h2 class="m-0 fw-bold">PROFIL</h2>
+        </div>
+      </div>
+
+      <div class="container my-5">
+        <div class="d-flex flex-column align-items-center">
+          <div class="d-flex align-items-center justify-content-center mb-4">
+            <img src="../../image/max.png" alt="max" class="img-fluid" style="height: 15rem;">
+            <div class="text-center ps-5">
+              <h1 id="nom" class="display-3">Max</h1>
+              <p class="fs-2 mb-0">@maxeffort</p>
+              <p class="fw-bold fs-4" id="ville">NANTES</p>
+            </div>
           </div>
+          <button id="modifier" class="btn btn-dark border mt-3 fs-5">Modifier</button>
         </div>
       </div>
 
-      <div class="autres">
-        <h3>SPORTS</h3>
-        <div class="logo">
-          <img src="/image/basket.png">
-          <img src="/image/athlé.png">
+      <div class="info my-5 mx-5">
+        <h3 class="mb-3 fs-2">SPORTS</h3>
+        <div class="d-flex">
+          <img src="../../image/basket.png" class="me-3">
+          <img src="../../image/athlé.png" class="me-3">
         </div>
       </div>
 
-      <div class="autres">
-        <h3>RÉSEAUX SOCIAUX</h3>
-        <div class="logo">
-          <img id="insta" src="/image/insta.png">
-          <img id="snapchat" src="/image/snap.png">
-          <img id="twitter" src="/image/x.png">
+      <div class="info my-5 mx-5">
+        <h3 class="mb-3 fs-2">RÉSEAUX SOCIAUX</h3>
+        <div class="d-flex">
+          <img id="insta" src="../../image/insta.png" class="me-3">
+          <img id="snapchat" src="../../image/snap.png" class="me-3">
+          <img id="twitter" src="../../image/x.png" class="me-3">
         </div>
       </div>
 
-      <div class="autres">
-        <h3>PROCHAINE(S) SÉANCE(S)</h3>
+      <div class="my-5 mx-5">
+        <h3 class="mb-3 fs-2">PROCHAINE(S) SÉANCE(S)</h3>
         <div class="calendrier">
-          <div class="head_cal">
+          <div class="d-flex justify-content-center align-items-center gap-3 mb-3 mt-4">
               <button id="prev" class="btn btn-light border">◀</button>
-              <h3 id="monthYear"></h3>
+              <h3 id="monthYear" class="m-0"></h3>
               <button id="next" class="btn btn-light border ">▶</button>
           </div>
-          <table id="calendrier">
-              <thead>
+          <table id="calendrier" class="table table-bordered text-center">
+              <thead class="table-dark">
                   <tr>
                       <th>Lun</th>
                       <th>Mar</th>
@@ -52,12 +61,12 @@ class View {
                   </tr>
               </thead>
               <tbody></tbody>
-          </table>
+          </table> 
         </div>
       </div>
     `;
 
-    this.back = document.getElementById('textTitle').querySelector('img');
+    this.back = this.div.querySelector('#back');
     this.modifier = this.div.querySelector('#modifier');
     this.insta = this.div.querySelector('#insta');
     this.twitter = this.div.querySelector('#twitter');

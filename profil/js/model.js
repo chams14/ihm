@@ -81,13 +81,16 @@ class Model extends Observable {
                 let seanceDate = new Date(s.date)
                 if(seanceDate.toDateString() === currentDate.toDateString()){
                     const divS = document.createElement('div');
-                    divS.classList.add('seance_cal');
+                    divS.classList.add('seance_cal', 'd-inline-block','me-0','mt-2', 'p-2');
                     let heure = seanceDate.getHours()
                     let minute = seanceDate.getMinutes()
                     heure = heure < 10 ? '0'+heure : heure;
                     minute = minute < 10 ? '0'+minute : minute;
-                    divS.innerHTML = s.lieu+ "<br>"+ heure +"h"+ minute;
+                    divS.innerHTML = "<strong>"+s.lieu+"</strong>"+ "<br>"+ heure +"h"+ minute;
+                    const lineBreak = document.createElement('br');
+                    cell.appendChild(lineBreak);
                     cell.appendChild(divS);
+                    cell.classList.add('px-0');
                 }
             })
             row.appendChild(cell);

@@ -8,10 +8,10 @@ Implémentation d'une application mobile orientée sport en suivant les principe
 Objectif de l'application : faciliter la mise en relation de passionnés partageant la même discipline sportive, leur permettant ainsi de se rencontrer et d'organiser des activités communes directement via l’application
 
 ## Répartition : qui a travaillé sur quoi
-- Thomas : Lieu (`/lieu` + `lieu.html`)
-- Maëlle : Profil (`/profil`). Ce dossier contient une deuxième version de séance (`/profil/js_seance`) qui a été fait pour faire le lien entre le lieu, les séances et les profils
-- Denez : Séance (`/seance`)
-- Eliott : Création de séance (`/creation`)
+- Thomas GIRAUD : Lieu (`/lieu` + `lieu.html`)
+- Maëlle LE LANNIC : Profil (`/profil`). Ce dossier contient une deuxième version de séance (`/profil/js_seance`) qui a été fait pour faire le lien entre le lieu, les séances et les profils
+- Denez GUERY : Séance (`/seance`)
+- Eliott GUEVEL : Création de séance (`/creation`)
 
 ## Fonctionnement `/profil`
 <span style="font-size: 18px; color: red;">⚠️ <strong>1ère page à ouvrir </strong> → lieu.html</span>

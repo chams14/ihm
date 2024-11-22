@@ -1,44 +1,55 @@
 class View {
+ 
+
   constructor({nom, pseudo, ville, photo, sports, reseaux, modifierBtn=false, amisBtn=false}){
     this.div = document.createElement('div');
     this.div.innerHTML = `
-      <div class="profil">
-        <div class="person">
-          <img src="${photo}" alt="${nom}">
-          <div class="info">
-            <h1 id="nom">${nom}</h1>
-            <p>${pseudo}</p>
-            <p id="ville">${ville}</p>
-            ${modifierBtn ? '<button id="modifier" class="btn btn-light border">Modifier</button>' : ''}
+      <div class="d-flex align-items-center py-3" style="border-bottom: 0.1rem solid grey;">
+        <img id="back" src="../image/flèche.png" alt="retour" class="position-absolute start-0 ms-3" style="height:4vh;">
+        <div class="d-flex align-items-center justify-content-center w-100">
+          <h2 class="m-0 fw-bold">PROFIL</h2>
+        </div>
+      </div>
+
+      <div class="container my-5">
+        <div class="d-flex flex-column align-items-center">
+          <div class="d-flex align-items-center justify-content-center mb-4">
+            <img src="${photo}" alt="${nom}" class="img-fluid" style="height: 15rem;">
+            <div class="text-center ps-5">
+              <h1 id="nom" class="display-3">${nom}</h1>
+              <p class="fs-2 mb-0">${pseudo}</p>
+              <p class="fw-bold fs-4" id="ville">${ville}</p>
+              ${modifierBtn ? '<button id="modifier" class="btn btn-dark border mt-3 fs-5">Modifier</button>' : ''}
+            </div>
           </div>
-        </div>
-        ${amisBtn ? '<button id="btnAmi" class="btn btn-light border inactive"></button>' : ''}
-      </div>
-
-      <div class="autres">
-        <h3>SPORTS</h3>
-        <div class="logo">
-          ${sports.map(sport => `<img src="${sport}">`).join('')}
+          ${amisBtn ? '<button id="btnAmi" class="btn btn-primary border mt-3 fs-5 inactive"></button>' : ''}
         </div>
       </div>
 
-      <div class="autres">
-        <h3>RÉSEAUX SOCIAUX</h3>
-        <div class="logo">
-          ${reseaux.map(({ id, src }) => `<img id="${id}" src="${src}">`).join('')}
+      <div class="info my-5 mx-5">
+        <h3 class="mb-3 fs-2">SPORTS</h3>
+        <div class="d-flex">
+          ${sports.map(sport => `<img src="${sport}" class="me-3">`).join('')}
+        </div>
+      </div>
+      
+      <div class="info my-5 mx-5">
+        <h3 class="mb-3 fs-2">RÉSEAUX SOCIAUX</h3>
+        <div class="d-flex">
+          ${reseaux.map(({ id, src }) => `<img id="${id}" src="${src}" class="me-3">`).join('')}
         </div>
       </div>
 
-      <div class="autres">
-        <h3>PROCHAINE(S) SÉANCE(S)</h3>
+      <div class="my-5 mx-5">
+        <h3 class="mb-3 fs-2">PROCHAINE(S) SÉANCE(S)</h3>
         <div class="calendrier">
-          <div class="head_cal">
+          <div class="d-flex justify-content-center align-items-center gap-3 mb-3 mt-4">
               <button id="prev" class="btn btn-light border">◀</button>
-              <h3 id="monthYear"></h3>
+              <h3 id="monthYear" class="m-0"></h3>
               <button id="next" class="btn btn-light border ">▶</button>
           </div>
-          <table id="calendrier">
-              <thead>
+          <table id="calendrier" class="table table-bordered text-center">
+              <thead class="table-dark">
                   <tr>
                       <th>Lun</th>
                       <th>Mar</th>
@@ -50,12 +61,12 @@ class View {
                   </tr>
               </thead>
               <tbody></tbody>
-          </table>
+          </table> 
         </div>
       </div>
     `;
 
-    this.back = document.getElementById('textTitle').querySelector('img');
+    this.back = this.div.querySelector('#back');
     this.amis = this.div.querySelector('#btnAmi');
     this.modifier = this.div.querySelector('#modifier');
     this.insta = this.div.querySelector('#insta');

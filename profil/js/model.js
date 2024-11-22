@@ -4,17 +4,15 @@ class Model extends Observable {
         super();
         this.currentDate = new Date();
         this.date = this.format(this.currentDate);
-        this.amis = '<img src="../image/ajouter.png" alt="ajouter">AJOUTER EN AMI(E)';
-        this.participation = 'Participer';
-
+        this.amis = '';
         this.seance = seanceUser;
     }
 
     setAmis(action){
         if(action === "ajouter"){
-            this.amis = '<img src="../image/ajouter.png" alt="ajouter">AJOUTER EN AMI(E)';
+            this.amis = '<img src="../image/ajouter.png" alt="ajouter" class="img-fluid me-2" style="height: 1.5rem;">AJOUTER EN AMI(E)';
         } else {
-            this.amis = '<img src="../image/retirer.png" alt="retirer">RETIRER DES AMI(E)';
+            this.amis = '<img src="../image/retirer.png" alt="retirer" class="img-fluid me-2" style="height: 1.5rem;">RETIRER DES AMI(E)';
         }
         this.setChanged();
         this.notifyObservers();
@@ -107,13 +105,16 @@ class Model extends Observable {
                     let seanceDate = new Date(s.date)
                     if(seanceDate.toDateString() === currentDate.toDateString()){
                         const divS = document.createElement('div');
-                        divS.classList.add('seance_cal');
+                        divS.classList.add('seance_cal', 'd-inline-block','me-0','mt-2', 'p-2');
                         let heure = seanceDate.getHours()
                         let minute = seanceDate.getMinutes()
                         heure = heure < 10 ? '0'+heure : heure;
                         minute = minute < 10 ? '0'+minute : minute;
                         divS.innerHTML = "<strong>"+s.lieu+"</strong>"+ "<br>"+ heure +"h"+ minute;
+                        const lineBreak = document.createElement('br');
+                        cell.appendChild(lineBreak);
                         cell.appendChild(divS);
+                        cell.classList.add('px-0');
                     }
                 })
                 row.appendChild(cell);

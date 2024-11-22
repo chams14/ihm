@@ -31,7 +31,7 @@
     "s1" :{
       "lieu" : "Call Of Ball",
       "sport" : "Basketball",
-      "seance": {"date":"2024-11-30T14:30:00", "details": ["Tournois 5x5","Équipes faites sur place","Tous niveaux"], "participants": [{"nom": "Emma", "pseudo": "@emma_44", "photo":"/image/emma.png"}]}
+      "seance": {"date":"2024-11-30T14:30:00", "details": ["Tournois 5x5","Équipes faites sur place","Tous niveaux"], "participants": [{"nom": "Emma", "pseudo": "@emma_44", "photo":"../image/emma.png"}]}
     },
     "s2" :{
       "lieu" : "Call Of Ball",

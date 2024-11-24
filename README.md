@@ -14,13 +14,11 @@ Objectif de l'application : faciliter la mise en relation de passionnés partage
 - Eliott GUEVEL : Création de séance (`/creation`)
 
 ## Fonctionnement `/profil`
-<span style="font-size: 18px; color: red;">⚠️ <strong>1ère page à ouvrir </strong> → lieu.html</span>
-
-Pour simplifier le choix de page à afficher j'ai stocké les données dans un fichier `data.json` qui simule l'API que l'application est censé avoir.
+Pour simplifier la gestion des différentes page à afficher, j'ai stocké les données dans un fichier `data.json` qui simule l'API que l'application est censé avoir.
 
 Les pages affichant les infos d'une séance ou d'un profil sont gérées avec le passage en paramètre d'un id pour éviter de créer plusieurs pages. 
 
-Pour pouvoir accéder à ces pages il faut donc soit passer par `lieu.html` et cliquer sur une séance ou passer par les URL suivants :
+Si on ouvre directement la page `profil.html` ou la page `seance.html` on tombe sur les données par défaut. Pour pouvoir accéder aux pages différentes, il faut soit passer par `lieu.html` et cliquer sur une séance, être sur la page d'une séance et cliquer sur un profil, ou passer par les URL suivants :
 - `/profil.html?user=emma`
 - `/profil.html?user=max`
 - `/seance.html?seance=s1`

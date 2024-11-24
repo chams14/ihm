@@ -1,7 +1,10 @@
 fetch('../profil/data.json')
     .then(response => response.json())
     .then(data => {
-        const seance = new URLSearchParams(window.location.search).get('seance');
+        let seance = new URLSearchParams(window.location.search).get('seance');
+        if(!seance){
+            seance = "s1";
+        }
         const donnee = data[seance];
         const user = data.max;
         if(donnee){
